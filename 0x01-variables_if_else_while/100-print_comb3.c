@@ -12,11 +12,16 @@ for (a = '0'; a <= '9'; a++)
 {
 for (b = '0'; b <= '9'; b++)
 {
+if (a != b && a < b)
+{
 putchar(a);
 putchar(b);
-if ()
+if (a != '9' || b != '9')
+{
 putchar(',');
 putchar(' ');
+}
+}
 }
 }
 putchar('\n');
