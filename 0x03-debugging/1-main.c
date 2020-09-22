@@ -16,9 +16,7 @@ i = 0;
 while (i < 10)
 {
 putchar(i);
-/**
- *Doesn't have an addition
- */
+/*The error is here, it need an addition*/
 }
 
 printf("Infinite loop avoided! \\o/\n");
