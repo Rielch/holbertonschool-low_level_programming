@@ -1,66 +1,39 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
- *
- *
+ * print_to_98 - Entry point
+ * @n: to be declared
+ * Return: Always 0 (Success)
  */
 void print_to_98(int n)
 {
-int a, b, c, d, e;
-if (n > 98)
+int a;
+if (n >= 98)
 {
 for (a = n; a >= 98; a--)
 {
-d = a / 100;
-b = (a / 10) % 10;
-c = a % 10;
-if (d != 0)
-{
-_putchar(d + '0');
-}
-_putchar(b + '0');
-_putchar(c + '0');
 if (a != 98)
 {
-_putchar(',');
-_putchar(' ');
+printf("%d, ", a);
+}
+else
+{
+printf("%d\n", a);
 }
 }
-_putchar('\n');
 }
 else
 {
 for (a = n; a <= 98; a++)
 {
-if (a < 0)
+if (a != 98)
 {
-e = -a;
-b = e / 10;
-c = e % 10;
-_putchar('-');
-if (b != 0)
-{
-_putchar(b + '0');
-}
-_putchar(c + '0');
-_putchar(',');
-_putchar(' ');
+printf("%d, ", a);
 }
 else
 {
-b = a / 10;
-c = a % 10;
-if (b != 0)
-{
-_putchar(b + '0');
-}
-_putchar(c + '0');
-if (a != 98)
-{
-_putchar(',');
-_putchar(' ');
+printf("%d\n", a);
 }
 }
-}
-_putchar('\n');
 }
 }
