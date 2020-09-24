@@ -24,7 +24,10 @@ else
 {
 printf("%d", a);
 }
+if (a < 100)
+{
 putchar(' ');
+}
 a++;
 }
 putchar('\n');
