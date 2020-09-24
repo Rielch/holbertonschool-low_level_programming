@@ -12,7 +12,7 @@ if (size > 0)
 {
 while (a < size)
 {
-b = size - a;
+b = (size - 1) - a;
 while (b > 0)
 {
 _putchar(' ');
