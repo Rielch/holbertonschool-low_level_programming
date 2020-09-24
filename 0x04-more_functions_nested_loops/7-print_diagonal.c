@@ -11,7 +11,7 @@ int a = 0;
 int b;
 if (n > 0)
 {
-while (a <= n)
+while (a < n)
 {
 b = 0;
 while (b < a)
