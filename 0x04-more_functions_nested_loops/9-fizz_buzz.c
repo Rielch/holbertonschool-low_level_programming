@@ -27,6 +27,5 @@ printf("%d ", a);
 }
 a++;
 }
-putchar('\n');
 return (0);
 }
