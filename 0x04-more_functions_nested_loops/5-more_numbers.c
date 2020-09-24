@@ -7,10 +7,11 @@
 void more_numbers(void)
 {
 int n = 0;
-int m = 0;
+int m;
 int a, b;
 while (n <= 9)
 {
+m = 0;
 while (m <= 14)
 {
 a = m / 10;
