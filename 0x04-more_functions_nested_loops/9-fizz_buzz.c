@@ -19,12 +19,12 @@ if (a % 5 == 0)
 {
 printf("Buzz");
 }
-putchar(' ');
 }
 else
 {
-printf("%d ", a);
+printf("%d", a);
 }
+putchar(' ');
 a++;
 }
 putchar('\n');
