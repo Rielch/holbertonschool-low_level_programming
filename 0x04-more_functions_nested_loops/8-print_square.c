@@ -9,12 +9,12 @@ void print_square(int size)
 {
 int a = 0;
 int b;
-if (n > 0)
+if (size > 0)
 {
-while (a < n)
+while (a < size)
 {
 b = 0;
-while (b < n)
+while (b < size)
 {
 _putchar('#');
 b++;
