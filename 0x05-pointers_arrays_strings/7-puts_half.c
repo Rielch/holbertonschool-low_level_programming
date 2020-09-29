@@ -13,7 +13,7 @@ int a, b;
 for (a = 0; *(str + a) != '\0'; a++)
 {
 }
-for (b = (a + 1) / 2; b <= a; b++)
+for (b = (a - 1) / 2; b <= a; b++)
 {
 _putchar(str[b]);
 }
