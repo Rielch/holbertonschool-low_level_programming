@@ -9,9 +9,16 @@
 
 int _atoi(char *s)
 {
-  int a, b, c, res, sig;
+  int a, b, c, res, sig, size;
+  for (size = 0; s[size] != '\0'; size++)
+    {
+    }
   for (a = 0; s[a] < '0' || s[a] > '9'; a++)
     {
+      if (a == size)
+	{
+	  return (0);
+	}
     }
   for (; s[a] >= '0' && s[a] <= '9'; a++)
     {
