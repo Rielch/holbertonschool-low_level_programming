@@ -10,16 +10,13 @@
 
 int _strcmp(char *s1, char *s2)
 {
-int a, b, size1, size2;
-size1 = 0;
-size2 = 0;
-for (a = 0; s1[a] != '\0'; a++)
+int a;
+for (a = 0; s1[a] == s2[a]; a++)
 {
-size1 = size1 + s1[a];
-}
-for (b = 0; s2[b] != '\0'; b++)
+if (s1[a] == '\0' && s2[a] == '\0')
 {
-size2 = size2 + s2[b];
+return (0);
 }
-return (size1 - size2);
+}
+return (s1[a] - s2[a]);
 }

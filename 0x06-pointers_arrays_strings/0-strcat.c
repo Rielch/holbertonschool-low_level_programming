@@ -14,7 +14,7 @@ int size_d, a;
 for (size_d = 0; dest[size_d] != '\0'; size_d++)
 {
 }
-for (a = 0; src[a] != '\0'; a ++)
+for (a = 0; src[a] != '\0'; a++)
 {
 dest[size_d + a] = src[a];
 }
