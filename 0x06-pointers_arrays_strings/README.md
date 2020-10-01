@@ -1,0 +1,1 @@
+Gabriel Prochnau`s directory for "Project: 0x06. C - More pointers, arrays and strings" from Holberton School
