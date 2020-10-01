@@ -22,5 +22,5 @@ s[a] = num[b];
 }
 }
 }
- return (s);
+return (s);
 }
