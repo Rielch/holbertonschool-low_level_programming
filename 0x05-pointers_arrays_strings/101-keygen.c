@@ -12,7 +12,6 @@ int main(void)
 {
   int a;
   char res[100];
-  char last;
   int sum;
   srand(time(NULL));
   for (a = 0; sum < 2645; a++)
