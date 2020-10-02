@@ -23,10 +23,6 @@ int _atoi(char *s)
   for (; s[a] >= '0' && s[a] <= '9'; a++)
     {
       res = (res * 10) + s[a];
-      if (a == size)
-	{
-	  return (res);
-	}
     }
   for (b = 0; b < a; b++)
     {
