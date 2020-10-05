@@ -15,7 +15,7 @@ for (a = 0; s[a] != c; a++)
 {
 if (s[a + 1] == '\0')
 {
-return (NULL);
+return ('\0');
 }
 }
 return (&s[a]);
