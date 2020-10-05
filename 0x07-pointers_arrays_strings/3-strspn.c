@@ -22,7 +22,7 @@ c++;
 break;
 }
 }
-if (accept[b + 1] == '\0')
+if (s[a + 1] == '\0')
 {
 return (c);
 }
