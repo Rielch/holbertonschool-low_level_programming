@@ -21,10 +21,10 @@ if (s[a] == accept[b])
 c++;
 break;
 }
-}
-if (s[a + 1] == '\0')
+if (accept[b + 1] == '\0')
 {
 return (c);
+}
 }
 }
 return (c);
