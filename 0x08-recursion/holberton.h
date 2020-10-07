@@ -10,3 +10,5 @@ int wildcmp(char *s1, char *s2);
 int _putchar(char c);
 int chksqrt(int n, int b);
 int chkprime(int n, int b);
+int sumdigit(char *s, int a);
+int chkpalind(char *s, int b, int a);
