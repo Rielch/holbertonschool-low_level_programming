@@ -14,7 +14,7 @@ char *arr;
 unsigned int i;
 if (size == 0)
 {
-return (NULL);
+return (0);
 }
 else
 {
