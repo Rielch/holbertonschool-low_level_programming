@@ -22,16 +22,12 @@ for (i = 0; s2[i] != '\0'; i++)
 {
 size2++;
 }
-if (size1 == 0 || size2 == 0)
-{
-return ('\0');
-}
 arr = malloc((size1 + size2 + 1) * sizeof(char));
 if (arr == NULL)
 {
 return ('\0');
 }
-for (i = 0; i < (size1 + size2 + 1); i++)
+for (i = 0; i <= (size1 + size2); i++)
 {
 if (i < size1)
 {
@@ -42,5 +38,6 @@ else
 arr[i] = s2[i - size1];
 }
 }
+arr[i + 1] = '\0';
 return (arr);
 }
