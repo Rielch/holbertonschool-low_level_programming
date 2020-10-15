@@ -21,6 +21,10 @@ grid = malloc(height * sizeof(int *));
 for (i = 0; i < height; i++)
 {
 grid[i] = malloc(width * sizeof(int));
+if (grid[i] == NULL)
+{
+return ('\0');
+}
 }
 if (grid == NULL)
 {
