@@ -15,7 +15,11 @@ int i, size;
 for (size = 0; str[size] != '\0'; size++)
 {
 }
-arr = malloc(size * sizeof(char));
+arr = malloc((size + 1) * sizeof(char));
+if (arr == NULL)
+{
+return ('\0');
+}
 for (i = 0; i <= size; i++)
 {
 arr[i] = str[i];
