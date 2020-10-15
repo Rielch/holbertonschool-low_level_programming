@@ -27,7 +27,7 @@ if (arr == NULL)
 {
 return ('\0');
 }
-for (i = 0; i <= (size1 + size2); i++)
+for (i = 0; i <= (size1 + size2);)
 {
 if (i < size1)
 {
@@ -37,7 +37,8 @@ else
 {
 arr[i] = s2[i - size1];
 }
+i++;
 }
-arr[i + 1] = '\0';
+arr[i] = '\0';
 return (arr);
 }
