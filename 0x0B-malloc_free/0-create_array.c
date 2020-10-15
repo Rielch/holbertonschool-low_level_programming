@@ -19,6 +19,10 @@ return (0);
 else
 {
 arr = malloc(size * sizeof(char));
+if (arr == NULL)
+{
+return ('\0');
+}
 for (i = 0; i < size; i++)
 {
 arr[i] = c;
