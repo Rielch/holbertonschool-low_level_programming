@@ -31,7 +31,7 @@ for (size2 = 0; s2[size2] != '\0' && size2 < n; size2++)
 str = malloc((size1 + size2) * sizeof(char));
 if (str == NULL)
 {
-return ('\0');
+return (NULL);
 }
 for (a = 0; a < (size1 + size2); a++)
 {
@@ -44,6 +44,6 @@ else
 str[a] = s2[a - size1];
 }
 }
-str[a + 1] = '\0';
+str[a] = '\0';
 return (str);
 }
