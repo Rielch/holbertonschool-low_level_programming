@@ -33,16 +33,13 @@ if (str == NULL)
 {
 return (NULL);
 }
-for (a = 0; a < (size1 + size2); a++)
-{
-if (a < size1)
+for (a = 0; a < size1; a++)
 {
 str[a] = s1[a];
 }
-else
+for (; a < size1 + size2; a++)
 {
 str[a] = s2[a - size1];
-}
 }
 str[a] = '\0';
 return (str);
