@@ -17,7 +17,7 @@ if (name != NULL)
 {
 d->name = name;
 }
-if(age != NULL)
+if (age != NULL)
 {
 d->age = age;
 }
