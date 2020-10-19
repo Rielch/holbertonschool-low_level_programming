@@ -16,6 +16,7 @@ dog_t *ndog;
 ndog = malloc(sizeof(dog_t));
 if (ndog == NULL)
 {
+free(ndog);
 return (NULL);
 }
 ndog->name = name;
