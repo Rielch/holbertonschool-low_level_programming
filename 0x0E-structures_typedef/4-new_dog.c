@@ -30,7 +30,7 @@ if (name2 == NULL)
 free(ndog);
 }
 _strcpy(name2, name);
-owner2 = malloc(sizeof (char) * _strlen(owner) + 1);
+owner2 = malloc(sizeof(char) * _strlen(owner) + 1);
 if (owner2 == NULL)
 {
 free(ndog);
