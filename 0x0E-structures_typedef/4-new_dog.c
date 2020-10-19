@@ -12,38 +12,73 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-dog_t *ndog;
-char *name2;
-char *owner2;
-if (name == NULL || owner == NULL)
-{
-return (NULL);
+  dog_t *ndog;
+  char *name2;
+  char *owner2;
+  if (name == NULL || owner == NULL)
+    {
+      return (NULL);
+    }
+  ndog = malloc(sizeof(dog_t));
+  if (ndog == NULL)
+    {
+      free(ndog);
+      return (NULL);
+    }
+  name2 = malloc(_strlen(name) + 1);
+  if (name2 == NULL)
+    {
+      free(ndog);
+      free(name2);
+    }
+  name2 = _strcpy(name2, name);
+  owner2 = malloc(_strlen(owner) + 1);
+  if (owner2 == NULL)
+    {
+      free(ndog);
+      free(name2);
+      free(owner2);
+    }
+  owner2 = _strcpy(owner2, owner);
+  ndog->name = name2;
+  ndog->age = age;
+  ndog->owner = owner2;
+  return (ndog);
 }
-ndog = malloc(sizeof(dog_t));
-if (ndog == NULL)
+
+/**
+ * _strlen - length of a string
+ *
+ * @str: string.
+ * Return: length.
+ */
+
+int _strlen(char *str)
 {
-free(ndog);
-return (NULL);
+  int a;
+  for (a = 0; str[a] != '\0'; a++)
+    {
+    }
+  return (a);
 }
- name2 = malloc(sizeof(*name));
- if (name2 == NULL)
-   {
-     free(name2);
-     free(ndog);
-     return (NULL);
-   }
- name2 = name;
- owner2 = malloc(sizeof(*owner));
- if (owner2 == NULL)
-   {
-     free(ndog);
-     free(owner2);
-     free(name2);
-     return (NULL);
-   }
- owner2 = owner;
-ndog->name = name2;
-ndog->age = age;
-ndog->owner = owner2;
- return (ndog);
+
+/**
+ * _strcpy - copy the contents of a string
+ *
+ * @src: string
+ * @dest: destiny
+ * Return: void.
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+  char *point = dest;
+  while (*src != '\0')
+    {
+      *dest = *src;
+      dest++;
+      src++;
+    }
+  *dest = '\0';
+  return (point);
 }
