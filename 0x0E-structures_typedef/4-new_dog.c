@@ -22,24 +22,21 @@ return (NULL);
 ndog = malloc(sizeof(dog_t));
 if (ndog == NULL)
 {
-free(ndog);
 return (NULL);
 }
-name2 = malloc(_strlen(name) + 1);
+name2 = malloc(sizeof(char) * _strlen(name) + 1);
 if (name2 == NULL)
 {
 free(ndog);
-free(name2);
 }
-name2 = _strcpy(name2, name);
-owner2 = malloc(_strlen(owner) + 1);
+_strcpy(name2, name);
+owner2 = malloc(sizeof (char) * _strlen(owner) + 1);
 if (owner2 == NULL)
 {
 free(ndog);
 free(name2);
-free(owner2);
 }
-owner2 = _strcpy(owner2, owner);
+_strcpy(owner2, owner);
 ndog->name = name2;
 ndog->age = age;
 ndog->owner = owner2;
@@ -72,7 +69,6 @@ return (a);
 
 char *_strcpy(char *dest, char *src)
 {
-char *point = dest;
 while (*src != '\0')
 {
 *dest = *src;
@@ -80,5 +76,5 @@ dest++;
 src++;
 }
 *dest = '\0';
-return (point);
+return (dest);
 }
