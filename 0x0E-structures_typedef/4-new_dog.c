@@ -42,8 +42,8 @@ return (NULL);
      return (NULL);
    }
  owner2 = owner;
-ndog->name = name;
+ndog->name = name2;
 ndog->age = age;
-ndog->owner = owner;
+ndog->owner = owner2;
  return (ndog);
 }
