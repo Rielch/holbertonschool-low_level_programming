@@ -1,3 +1,5 @@
+global _start
+
 	%define sys_write 1
 	%define stdout 1
 
@@ -8,12 +10,11 @@
 
 	section .data
 
-	    message db "Hello, world!", nl
+	    message db "Hello, Holberton", nl
 	    message_len equ $-message
 
 	section .text
 
-	global _start
 _start:
 	    mov rax, sys_write
 	    mov rdi, stdout
