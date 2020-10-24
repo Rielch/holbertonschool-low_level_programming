@@ -4,46 +4,6 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - prints anything
- *
- * @format: format of the argument
- * Return: Void.
- */
-
-void print_all(const char * const format, ...)
-{
-va_list list;
-char *str;
-int a = 0, b;
-func_list prt[] = {
-{"i", print_int},
-{"c", print_char},
-{"f", print_float},
-{"s", print_str},
-{NULL, NULL},
-};
-va_start(list, format);
-str = "";
-while (format[a] && format)
-{
-b = 0;
-while (b < 4)
-{
-if (format[a] == prt[b].ch[0])
-{
-prt[b].f(str, list);
-str = ", ";
-break;
-}
-b++;
-}
-a++;
-}
-printf("\n");
-va_end(list);
-}
-
-/**
  * print_int - prints an int
  *
  * @str: separator
@@ -95,4 +55,44 @@ if (temp == NULL)
 temp = "(nil)";
 }
 printf("%s%s", str, temp);
+}
+
+/**
+ * print_all - prints anything
+ *
+ * @format: format of the argument
+ * Return: Void.
+ */
+
+void print_all(const char * const format, ...)
+{
+	va_list list;
+	char *str;
+	int a = 0, b;
+	func_list prt[] = {
+		{"i", print_int},
+		{"c", print_char},
+		{"f", print_float},
+		{"s", print_str},
+		{NULL, NULL},
+	};
+	va_start(list, format);
+	str = "";
+	while (format[a] && format)
+	{
+		b = 0;
+		while (b < 4)
+		{
+			if (format[a] == prt[b].ch[0])
+			{
+				prt[b].f(str, list);
+				str = ", ";
+				break;
+			}
+			b++;
+		}
+		a++;
+	}
+	printf("\n");
+	va_end(list);
 }
