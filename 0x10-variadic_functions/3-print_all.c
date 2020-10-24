@@ -23,7 +23,7 @@ func_list prt[] = {
 {NULL, NULL},
 };
 va_start(list, format);
-while (format[a] != '\0' && format != NULL)
+while (format[a] && format)
 {
 b = 0;
 while (prt[b].ch != NULL)
