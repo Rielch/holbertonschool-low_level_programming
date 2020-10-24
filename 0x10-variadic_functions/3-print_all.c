@@ -83,10 +83,11 @@ printf("%f", va_arg(list, double));
 
 void print_str(va_list list)
 {
-char *str = va_arg(list, char *);
+char *str;
+str = va_arg(list, char *);
 if (str == NULL)
 {
-*str = "(nil)";
+str = "(nil)";
 }
 printf("%s", str);
 }
