@@ -30,8 +30,7 @@ while (prt[b].ch != NULL)
 {
 if (format[a] == prt[b].ch[0])
 {
-printf("%s", str);
-prt[b].f(list);
+prt[b].f(str, list);
 str = ", ";
 break;
 }
@@ -45,49 +44,53 @@ printf("\n");
 /**
  * print_int - prints an int
  *
+ * @str: separator
  * @list: element to print
  */
 
-void print_int(va_list list)
+void print_int(char *str, va_list list)
 {
-printf("%d", va_arg(list, int));
+printf("%s%d", str, va_arg(list, int));
 }
 
 /**
  * print_char - prints a char
  *
+ * @str: separator
  * @list: element to print
  */
 
-void print_char(va_list list)
+void print_char(char *str, va_list list)
 {
-printf("%c", va_arg(list, int));
+printf("%s%c", str, va_arg(list, int));
 }
 
 /**
  * print_float - prints a float
  *
+ * @str: separator
  * @list: element to print
  */
 
-void print_float(va_list list)
+void print_float(char *str, va_list list)
 {
-printf("%f", va_arg(list, double));
+printf("%s%f", str, va_arg(list, double));
 }
 
 /**
  * print_str - prints a string
  *
+ * @str: separator
  * @list: element to print
  */
 
-void print_str(va_list list)
+void print_str(char *str, va_list list)
 {
-char *str;
-str = va_arg(list, char *);
-if (str == NULL)
+char *temp;
+temp = va_arg(list, char *);
+if (temp == NULL)
 {
-str = "(nil)";
+temp = "(nil)";
 }
-printf("%s", str);
+printf("%s%s", str, temp);
 }
