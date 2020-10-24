@@ -39,6 +39,7 @@ b++;
 a++;
 }
 printf("\n");
+va_end(list);
 }
 
 /**
