@@ -13,7 +13,7 @@
 void print_all(const char * const format, ...)
 {
 va_list list;
-char *str = "";
+char *str;
 int a = 0, b;
 func_list prt[] = {
 {"i", print_int},
@@ -23,10 +23,11 @@ func_list prt[] = {
 {NULL, NULL},
 };
 va_start(list, format);
+str = "";
 while (format[a] && format)
 {
 b = 0;
-while (prt[b].ch != NULL)
+while (b < 4)
 {
 if (format[a] == prt[b].ch[0])
 {
