@@ -86,8 +86,7 @@ void print_str(va_list list)
 char *str = va_arg(list, char *);
 if (str == NULL)
 {
-printf("(nil)");
-return;
+str = "(nil)";
 }
 printf("%s", str);
 }
