@@ -23,10 +23,7 @@ if (separator != NULL && i < n - 1)
 {
 printf("%s", separator);
 }
-else if (i == n - 1)
-{
+}
 printf("\n");
-}
-}
 va_end(list);
 }
