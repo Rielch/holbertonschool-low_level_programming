@@ -6,6 +6,7 @@
  * sum_them_all - sums all arguments given to the function
  *
  * @n: ammount of parameters
+ * Return: Sum of all parameters.
  */
 
 int sum_them_all(const unsigned int n, ...)
