@@ -5,12 +5,12 @@
  *
  * @n: number to check
  * @index: bit to check
- * Returns: the value of the bit at index
+ * Return: the value of the bit at index
  */
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	if (n >> index)
+	if (n >> index || n == 0)
 	{
 		return ((n >> index) & 1);
 	}
