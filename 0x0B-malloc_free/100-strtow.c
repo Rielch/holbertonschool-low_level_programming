@@ -10,17 +10,21 @@
 
 char **strtow(char *str)
 {
-  int size, b, words;
-  char *newstr;
-  if (str == NULL || str == "")
+  int size, a, b, words, szwrd;
+  char **newstr;
+  if (str == NULL)
     {
       return (NULL);
     }
-  for (size = 0; str[size] != '\0'; size++)
+  for (a = 0; str[a] != '\0'; a++)
     {
-      if (str[size] != ' ' && (str[size + 1] == ' ' || str[size + 1] == '\0'))
+      if (str[a] != ' ')
 	{
-	  words++;
+	  size++;
+	  if (str[a + 1] == ' ' || str[a + 1] == '\0')
+	    {
+	      words++;
+	    }
 	}
     }
   newstr = malloc(words * sizeof(char *));
@@ -28,8 +32,23 @@ char **strtow(char *str)
     {
       return (NULL);
     }
-  for (size = 0; str[size] 1= '\0'; size++)
+  for (a = 0; a < words; a++)
     {
-      if (str[size] != ' '
+      szwrd = 0;
+      while (*str[a] != '\0')
+	{
+	  str[a]++;
+	  szwrd++;
+	}
+      newstr[a] = malloc(szwrd * sizeof(char));
+      if (newstr[a] == NULL)
+	{
+	  free(newstr);
+	  for (b = 0; b <= a; b++)
+	    {
+	      free(newstr[b]);
+	    }
+	}
     }
+  return (newstr);
 }
