@@ -9,6 +9,7 @@
 int get_endianness(void)
 {
 	char *str = "a";
+
 	if (&str[1] > &str[0])
 	{
 		return (1);
