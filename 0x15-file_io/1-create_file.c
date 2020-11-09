@@ -21,6 +21,10 @@ int create_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
+	if (text_content == NULL)
+	{
+		return (1);
+	}
 	for (text_size = 0; text_content[text_size] != '\0'; text_size++)
 	{
 	}
@@ -29,10 +33,6 @@ int create_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	tmp = close(fd);
-	if (tmp == -1)
-	{
-		return (-1);
-	}
+	close(fd);
 	return (1);
 }
