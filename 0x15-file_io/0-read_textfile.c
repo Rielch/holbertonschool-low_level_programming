@@ -17,31 +17,23 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
-
 	fd = open(filename, O_RDONLY);
-
 	if (fd == -1)
 	{
 		return (0);
 	}
-
 	readed = read(fd, buff, letters);
 	if (readed == -1)
 	{
 		return (0);
 	}
 	buff[readed] = '\0';
-
-	writed = write(1, buff, readed);
-
+	writed = write(STDOUT_FILENO, buff, readed);
 	if (writed == -1 || writed != readed)
 	{
 		return (0);
 	}
-
 	close(fd);
-
 	free(buff);
-
 	return (writed);
 }
