@@ -29,6 +29,10 @@ int create_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	close(fd);
+	tmp = close(fd);
+	if (tmp == -1)
+	{
+		return (-1);
+	}
 	return (1);
 }
