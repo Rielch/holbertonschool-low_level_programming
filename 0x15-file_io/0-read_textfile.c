@@ -30,7 +30,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
-	buff[letters] = '\0';
+	buff[readed] = '\0';
 
 	writed = write(1, buff, readed);
 
