@@ -10,7 +10,7 @@
 
 int main(int argc, char **argv)
 {
-int fd1, fd2, wr, tmp = 1024, close1, close2;
+int fd1, fd2, wr, tmp = 1024, cl1, cl2;
 char *buff;
 
 if (argc != 3)
@@ -39,17 +39,12 @@ while (tmp == 1024)
 	}
 	free(buff);
 }
-close1 = close(fd1);
-close2 = close(fd2);
-if (close1 == -1)
+cl1 = close(fd1);
+cl2 = close(fd2);
+if (cl1 == -1 || cl2 == -1)
 {
-	dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd1);
-	exit(100);
-}
-if (close2 == -1)
-{
-        dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd2);
-        exit(100);
+dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", (cl1 == -1) ? fd1 : fd2);
+exit(100);
 }
 return (0);
 }
