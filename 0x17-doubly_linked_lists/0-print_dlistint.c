@@ -12,23 +12,31 @@ size_t print_dlistint(const dlistint_t *h)
 	dlistint_t *temp;
 	size_t a = 0;
 
-	if (h != NULL)
+	if (h == NULL)
+	{
+		return (a);
+	}
+	if (h->prev != NULL)
+	{
+		temp = h->prev;
+	}
+	else if (h->next != NULL)
+	{
+		temp = h->next;
+	}
+	else
 	{
 		printf("%d\n", h->n);
-		temp = h->next;
-		a++;
+		return (1);
+	}
+	while (temp->prev != NULL)
+	{
+		temp = temp->prev;
 	}
 	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
-		a++;
-	}
-	temp = h->prev;
-	while (temp != NULL)
-	{
-		printf("%d\n", temp->n);
-		temp = temp->prev;
 		a++;
 	}
 	return (a);
