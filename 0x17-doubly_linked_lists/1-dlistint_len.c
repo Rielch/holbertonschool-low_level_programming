@@ -9,7 +9,7 @@
 
 size_t dlistint_len(const dlistint_t *h)
 {
-	dlistint_t *temp;
+	dlistint_t *temp = NULL;
 	size_t a = 0;
 
 	if (h != NULL)
@@ -22,7 +22,10 @@ size_t dlistint_len(const dlistint_t *h)
 		temp = temp->next;
 		a++;
 	}
-	temp = h->prev;
+	if (h != NULL)
+	{
+		temp = h->prev;
+	}
 	while (temp != NULL)
 	{
 		temp = temp->prev;
