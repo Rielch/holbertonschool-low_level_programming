@@ -2,26 +2,16 @@
 #include <stdio.h>
 
 /**
- * f1 - crack first character
- *
- * @len: length username
- * Return: value
- */
-
-int f1(int len)
-{
-	return (((len ^ 0x3b) & 0x3f));
-}
-
-/**
  * f2 - crack second character
  *
  * @usr: username
  * @len: length username
- * Return: value
+ * @data: data
+ * @password: password for the username
+ * Return: void
  */
 
-int f2(char *usr, int len)
+void f2(char *usr, int len, char *data, char *password)
 {
 	int a, b = 0;
 
@@ -30,26 +20,15 @@ int f2(char *usr, int len)
 		b += usr[a];
 	}
 	b = ((b ^ 0x4f) & 0x3f);
-	return (b);
-}
+	password[1] = data[b];
 
-/**
- * f3 - crack third character
- *
- * @usr: username
- * @len: length username
- * Return: value
- */
-
-int f3(char *usr, int len)
-{
-	int a, b = 1;
+	b = 1;
 
 	for (a = 0; a < len; a++)
 	{
 		b *= usr[a];
 	}
-	return ((b ^ 0x55) &0x3f);
+	password[2] = data[((b ^ 0x55) & 0x3f)];
 }
 
 /**
@@ -123,10 +102,11 @@ int f6(char usr)
 
 int main(int argc, char **argv)
 {
-	char *data = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
+	char *data;
 	char password[6];
 	int len;
 
+	data = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
 	if (argc != 2)
 	{
 		printf("Usage %s username", argv[0]);
@@ -135,9 +115,8 @@ int main(int argc, char **argv)
 	for (len = 0; argv[1][len] != 0; len++)
 	{
 	}
-	password[0] = data[f1(len)];
-	password[1] = data[f2(argv[1], len)];
-	password[2] = data[f3(argv[1], len)];
+	password[0] = data[((len ^ 0x3b) & 0x3f)];
+	f2(argv[1], len, data, password);
 	password[3] = data[f4(argv[1], len)];
 	password[4] = data[f5(argv[1], len)];
 	password[5] = data[f6(argv[1][0])];
