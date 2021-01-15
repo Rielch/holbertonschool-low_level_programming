@@ -40,7 +40,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 char *hash_table_get(const hash_table_t *ht, const char *key);
 void hash_table_print(const hash_table_t *ht);
 void hash_table_delete(hash_table_t *ht);
-unsigned char *_str_copy_u(const char *src, unsigned char *dest);
-char *_str_copy(const char *src, char *dest);
 
 #endif /* HASH_TABLES */

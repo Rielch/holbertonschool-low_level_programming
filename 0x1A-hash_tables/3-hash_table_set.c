@@ -13,8 +13,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *new, *temp;
 	unsigned long int index, size;
-	unsigned char *key2 = NULL;
-	char *val = NULL, *key3 = NULL;
+	unsigned char *key2 = (unsigned char*) key;
+	char *val = strdup(value);
 
 	if (ht == NULL)
 	{
@@ -23,88 +23,29 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	size = ht->size;
 	if (key != NULL)
 	{
-		key2 = _str_copy_u(key, key2);
 		index = key_index(key2, size);
-		free(key2);
 	}
 	else
 	{
 		return (0);
+	}
+	temp = ht->array[index];
+	while (temp != NULL)
+	{
+		if (strcmp(temp->key, key))
+		{
+			temp->value = val;
+			return (1);
+		}
 	}
 	new = malloc(sizeof(hash_node_t));
 	if (new == NULL)
 	{
 		return(0);
 	}
-	key3 = _str_copy(key, key3);
-	val = _str_copy(value, val);
-	new->key = key3;
 	new->value = val;
-	temp = ht->array[index];
-	while (temp != NULL)
-	{
-		if (strcmp(key3, temp->key) == 0)
-		{
-			temp->value = val;
-			break;
-		}
-		temp = temp->next;
-	}
-	if (temp == NULL)
-	{
-		new->next = temp;
-		ht->array[index] = new;
-	}
-	free(val), free(key3);
+	new->key = strdup(key);
+	new->next = ht->array[index];
+	ht->array[index] = new;
 	return (1);
-}
-
-
-/**
- * _str_copy_ - copy a string to unsigned
- *
- * @src: source string
- * @dest: destination to copy
- * Return: dest
- */
-
-unsigned char *_str_copy_u(const char *src, unsigned char *dest)
-{
-	int i;
-
-	for (i = 0; src[i] != '\0'; i++)
-	{
-	}
-	dest = malloc(sizeof(char) * i + 1);
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[i] = src[i];
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-
-/**
- * _str_copy - copy a string
- *
- * @src: source string
- * @dest: destination string
- * Return: dest
- */
-
-char *_str_copy(const char *src, char *dest)
-{
-	int i;
-
-	for (i = 0; src[i] != '\0'; i++)
-	{
-	}
-	dest = malloc(sizeof(char) * i + 1);
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[i] = src[i];
-	}
-	dest[i] = '\0';
-	return (dest);
 }
