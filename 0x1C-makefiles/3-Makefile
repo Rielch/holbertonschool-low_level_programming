@@ -17,6 +17,6 @@ fclean:
 	$(MAKE) clean
 	$(MAKE) oclean
 
-.PHONY: re
-re: $(SRC)
-	$(CC) $(SRC) -o $(NAME)
+re: $(OBJ)
+	$(MAKE) oclean
+	$(MAKE) all
